@@ -2028,43 +2028,67 @@
                         <span data-en="Available for new projects" data-ru="Доступен для новых проектов">Available for new projects</span>
                     </div>
                 </div>
-                <form class="contact-form fade-in" onsubmit="handleFormSubmit(event)">
-                    <div class="form-group">
-                        <label for="name" data-en="Your Name" data-ru="Ваше имя">Your Name</label>
-                        <input type="text" id="name" name="name" required placeholder="John Doe">
-                    </div>
-                    <div class="form-group">
-                        <label for="email" data-en="Your Email" data-ru="Ваш Email">Your Email</label>
-                        <input type="email" id="email" name="email" required placeholder="john@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="project-type" data-en="Project Type" data-ru="Тип проекта">Project Type</label>
-                        <select id="project-type" name="project-type" required>
-                            <option value="" data-en="Select project type" data-ru="Выберите тип проекта">Select project type</option>
-                            <option value="landing" data-en="Landing Page" data-ru="Лендинг">Landing Page</option>
-                            <option value="business" data-en="Business Website" data-ru="Корпоративный сайт">Business Website</option>
-                            <option value="portfolio" data-en="Portfolio Website" data-ru="Сайт-портфолио">Portfolio Website</option>
-                            <option value="wordpress" data-en="WordPress Development" data-ru="WordPress разработка">WordPress Development</option>
-                            <option value="redesign" data-en="Website Redesign" data-ru="Редизайн сайта">Website Redesign</option>
-                            <option value="other" data-en="Other" data-ru="Другое">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="budget" data-en="Budget Range" data-ru="Бюджет">Budget Range</label>
-                        <select id="budget" name="budget" required>
-                            <option value="" data-en="Select budget range" data-ru="Выберите диапазон бюджета">Select budget range</option>
-                            <option value="300-500">$300 - $500</option>
-                            <option value="500-1000">$500 - $1000</option>
-                            <option value="1000-2000">$1000 - $2000</option>
-                            <option value="2000+" data-en="$2000+" data-ru="$2000+">$2000+</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message" data-en="Project Details" data-ru="Детали проекта">Project Details</label>
-                        <textarea id="message" name="message" required placeholder="Tell me about your project..."></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn" data-en="Send Message" data-ru="Отправить сообщение">Send Message</button>
-                </form>
+              <form action="https://api.web3forms.com/submit" method="POST" class="contact-form fade-in">
+    
+    <!-- Access Key - ЗАМЕНИ НА СВОЙ! -->
+    <input type="hidden" name="access_key" value="3d41b648-14d5-454b-a5d2-94e578573660">
+    
+    <!-- Email настройки -->
+    <input type="hidden" name="subject" value="🎯 New Project Request from Portfolio">
+    <input type="hidden" name="from_name" value="Portfolio Contact Form">
+    
+    <!-- Your Name -->
+    <div class="form-group">
+        <label for="name" data-en="Your Name" data-ru="Ваше имя">Your Name</label>
+        <input type="text" id="name" name="name" required placeholder="John Doe" minlength="2">
+    </div>
+    
+    <!-- Your Email -->
+    <div class="form-group">
+        <label for="email" data-en="Your Email" data-ru="Ваш Email">Your Email</label>
+        <input type="email" id="email" name="email" required placeholder="john@example.com">
+    </div>
+    
+    <!-- Project Type -->
+    <div class="form-group">
+        <label for="project-type" data-en="Project Type" data-ru="Тип проекта">Project Type</label>
+        <select id="project-type" name="project_type" required>
+            <option value="" data-en="Select project type" data-ru="Выберите тип проекта">Select project type</option>
+            <option value="Landing Page ($200-$500)" data-en="Landing Page" data-ru="Лендинг">Landing Page - $200-$500</option>
+            <option value="Business Website ($400-$800)" data-en="Business Website" data-ru="Корпоративный сайт">Business Website - $400-$800</option>
+            <option value="Portfolio Website ($300-$600)" data-en="Portfolio Website" data-ru="Сайт-портфолио">Portfolio Website - $300-$600</option>
+            <option value="WordPress Development ($500-$1000)" data-en="WordPress Development" data-ru="WordPress разработка">WordPress Development - $500-$1000</option>
+            <option value="Website Redesign ($300-$700)" data-en="Website Redesign" data-ru="Редизайн сайта">Website Redesign - $300-$700</option>
+            <option value="Other" data-en="Other" data-ru="Другое">Other</option>
+        </select>
+    </div>
+    
+    <!-- Budget Range -->
+    <div class="form-group">
+        <label for="budget" data-en="Budget Range" data-ru="Бюджет">Budget Range</label>
+        <select id="budget" name="budget" required>
+            <option value="" data-en="Select budget range" data-ru="Выберите диапазон бюджета">Select budget range</option>
+            <option value="$200 - $500">$200 - $500</option>
+            <option value="$500 - $1000">$500 - $1000</option>
+            <option value="$1000 - $2000">$1000 - $2000</option>
+            <option value="$2000+" data-en="$2000+" data-ru="$2000+">$2000+</option>
+        </select>
+    </div>
+    
+    <!-- Project Details -->
+    <div class="form-group">
+        <label for="message" data-en="Project Details" data-ru="Детали проекта">Project Details</label>
+        <textarea id="message" name="message" required placeholder="Tell me about your project..." minlength="20"></textarea>
+    </div>
+    
+    <!-- Honeypot для защиты от спама -->
+    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+    
+    <!-- Submit Button -->
+    <button type="submit" class="submit-btn" data-en="Send Message" data-ru="Отправить сообщение">Send Message</button>
+    
+</form>
+
             </div>
         </div>
     </section>
